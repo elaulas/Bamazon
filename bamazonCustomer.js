@@ -53,7 +53,7 @@ var customerChoice = function(res){
                 }]).then(function(answer){
                     if((res[id].stock_quantity - answer.amount) > 0){
                         connection.query("UPDATE products SET stock_quantity='" + (res[id].stock_quantity - answer.amount) + "'WHERE item_id= '" + product + "'", function(err,res2){
-                            console.log("Product Purchased!")
+                            console.log("Product Purchased! The total cost of your puchase was only $" + (answer.amount *res[id].price) + '!');
                             createTable();
                        
                         })
